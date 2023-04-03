@@ -56,10 +56,13 @@ mat-sidenav-container {
   border: none;
   margin-top:15px;
   margin-bottom: 15px;
+  background-color: #F2F2F2;
 }
 
-.menu-button mat-icon {
+.menu-icon {
   margin-right: 8px;
+  width:35px;
+  height: 35px;
 }
 
 
