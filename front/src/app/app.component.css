@@ -1,0 +1,112 @@
+
+mat-toolbar {
+  background: #F2F2F2;
+  color: #000000;
+}
+
+mat-sidenav {
+  box-sizing: border-box;
+  /*margin:16px;*/
+  width: 320px;
+  height: 100vh;
+  border-right: none;
+  background: #F2F2F2;
+  color: #000000;
+  border-radius: 10px;
+}
+
+span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.content-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+/* CONTENT OF SIDEBAR*/
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: lightgray;
+
+}
+
+mat-sidenav-container {
+  height:  100vh;
+    /*calc(100vh - 65px);*/
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  border: none;
+  margin-top:15px;
+  margin-bottom: 15px;
+}
+
+.menu-button mat-icon {
+  margin-right: 8px;
+}
+
+
+/* AVATAR */
+
+.avatar-side-bar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nickname-sidebar {
+  display: flex;
+  justify-content: center;
+
+}
+
+.name {
+  margin-top: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  top: 16px;
+  position: relative;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background: #F3F2F2;
+  color: #F2F2F2;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+}
+
+#Website-name {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  color: #FEA560;
+}
