@@ -13,7 +13,7 @@
         </div>
       </div>
       <mat-divider></mat-divider>
-      <button class="menu-button" mat-button>
+      <button class="menu-button" mat-button routerLink="home">
         <img class="menu-icon" src="./assets/icons/mingcute_home-2-line.png">
         <span>Home</span>
       </button>
@@ -21,7 +21,7 @@
         <img class="menu-icon" src="./assets/icons/ic_sharp-manage-search.png">
         <span>Search</span>
       </button>
-      <button class="menu-button" mat-button>
+      <button class="menu-button" mat-button (click)="openModel($event)">
         <img class="menu-icon" src="./assets/icons/mingcute_add-circle-line.png">
         <span>Create</span>
       </button>
@@ -36,9 +36,35 @@
   </mat-sidenav>
 
 
-<!--  <mat-sidenav-content>-->
-<!--    <div class="content mat-elevation-z4">-->
-<!--      Main content-->
-<!--    </div>-->
-<!--  </mat-sidenav-content>-->
+  <!--  <mat-sidenav-content>-->
+  <!--    <div class="content mat-elevation-z4">-->
+  <!--      Main content-->
+  <!--    </div>-->
+  <!--  </mat-sidenav-content>-->
+
+  <div class="modal-background" id="modal-background-create-post" (click)="openModel($event)">
+    <form class="create-post-modal">
+      <div class="post-header">
+        <div class="post-user-img">
+          <img src="./assets/user-1.JPG"/>
+        </div>
+        <p>@itsanna</p>
+      </div>
+
+      <div class="create-post-textarea">
+        <img src="assets/icons/edit-icon.png" class="post-icon"/>
+        <textarea type="text" placeholder="What's news?" maxlength="2000"></textarea>
+      </div>
+
+      <div class="create-post-footer">
+        <img src="./assets/icons/attach-icon.png" class="post-icon"/>
+        <button type="submit">Post</button>
+      </div>
+
+    </form>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
 </mat-sidenav-container>

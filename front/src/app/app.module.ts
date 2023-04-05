@@ -9,10 +9,11 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
-    AppComponent, ProfileComponent
+    AppComponent, ProfileComponent, HomeComponent
   ],
   imports: [
     BrowserModule,

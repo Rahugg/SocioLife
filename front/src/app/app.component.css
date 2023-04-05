@@ -1,4 +1,5 @@
 
+
 mat-toolbar {
   background: #F2F2F2;
   color: #000000;
@@ -16,7 +17,6 @@ mat-sidenav {
 }
 
 span {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -39,12 +39,11 @@ span {
   align-items: center;
   font-size: 2rem;
   color: lightgray;
-
 }
 
 mat-sidenav-container {
   height:  100vh;
-    /*calc(100vh - 65px);*/
+  /*calc(100vh - 65px);*/
 }
 
 .menu-button {
@@ -113,3 +112,108 @@ mat-divider {
   margin-left: 15px;
   color: #FEA560;
 }
+
+.modal-background{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.create-post-modal{
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  background: #F2F2F2;
+  padding: 40px;
+  margin-left: 17%;
+}
+
+.modal-active{
+  display: flex;
+}
+
+.create-post-textarea textarea{
+  background: none;
+  border: none;
+  height: 180px;
+  width: 350px;
+  font-family: Inter, sans-serif;
+  margin-top: 3px;
+  resize: none;
+}
+
+.create-post-textarea textarea:focus{
+  outline: none;
+}
+
+.create-post-textarea img{
+  height: 24px;
+}
+
+.create-post-textarea{
+  display: flex;
+  margin-top: 30px;
+}
+
+
+.create-post-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-post-footer button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: Inter, sans-serif;
+  background: #FEA560;
+}
+
+.main-content{
+  display: flex;
+  justify-content: center;
+}
+
+.post-header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-header p{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.post-user-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-user-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.post-icon{
+  width: 24px;
+  margin-right: 10px;
+}
+
