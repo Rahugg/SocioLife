@@ -1,40 +1,66 @@
+
+
+
+
 <div class="home">
   <div class="post-list">
-    <div class="post" *ngFor="let post of posts">
-      <div class="post-header">
-        <div class="post-user-img">
-          <img src="./assets/user-1.JPG"/>
-        </div>
-        <p>@{{post.user}}</p>
-      </div>
-
+    <div class="post" *ngFor="let post of posts; let postIndex = index">
       <div class="post-content">
-        <img src="{{post.img}}" class="post-img"/>
+
+        <div class="post-content-left">
+          <img src="{{post.img}}" class="post-img"/>
+          <div class="comment-list" [attr.id]="'postCommentList'+ postIndex ">
+
+            <div *ngFor="let comment of post.comments" class="comment-background comment-active">
+              <div class="comment">
+                <div class="comment-account-image">
+                  <img src="./assets/anime-2.jpg"/>
+                </div>
+                <div>
+                  <p class="account-name">@{{comment.user}}</p>
+                  <p>
+                    {{comment.title}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+<!--            <div *ngFor="let comment of post.comments; let commentIndex = index" class="comment-background" [ngClass]="{'comment-active': commentIndexes[postIndex].currentIndex === commentIndex}">-->
+<!--              <div class="comment">-->
+<!--                <div class="comment-account-image">-->
+<!--                  <img src="./assets/anime-2.jpg"/>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <p class="account-name">@{{comment.user}}</p>-->
+<!--                  <p>-->
+<!--                    {{comment.title.slice(0, 100)}}-->
+<!--                  </p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div *ngIf="post.comments.length == 0">-->
+<!--              <p class="comment">No comments yet... </p>-->
+<!--            </div>-->
+
+          </div>
+        </div>
 
         <div class="post-details">
-          <p>{{post.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.</p>
-          <img src="./assets/icons/like-icon.png" class="post-icon"/>
-          <img src="./assets/icons/comment-icon.png" class="post-icon"/>
-          <p class="post-likes"> 56 likes</p>
-        </div>
-      </div>
-    </div>
+          <div class="post-header">
+            <div class="post-user-img">
+              <img src="./assets/anime-1.webp"/>
+            </div>
+            <p>@{{post.user}}</p>
+          </div>
 
-    <div class="post" *ngFor="let post of posts">
-      <div class="post-header">
-        <div class="post-user-img">
-          <img src="./assets/user-1.JPG"/>
-        </div>
-        <p>@{{post.user}}</p>
-      </div>
+          <div class="post-text">
+            <p>{{post.title.slice(0, 100)}}<span *ngIf="post.title.length > 100" class="more-button" (click)="showMoreText($event)" >...more</span></p>
+            <p class="text-more" (click)="showMoreText($event)">{{post.title}}</p>
+          </div>
 
-      <div class="post-content">
-        <img src="{{post.img}}" class="post-img"/>
-
-        <div class="post-details">
-          <p>{{post.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.</p>
-          <img src="./assets/icons/like-icon.png" class="post-icon"/>
-          <img src="./assets/icons/comment-icon.png" class="post-icon"/>
+          <img src="./assets/icons/icon-like-inactive.png" class="post-icon" (click)="likeThisPost($event, post)"/>
+          <img src="./assets/icons/icon-comment.png" class="post-icon"/>
           <p class="post-likes"> 56 likes</p>
         </div>
       </div>

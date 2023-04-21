@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Post} from "./modules/Post";
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SocioLife';
 
-  openModel(event : any){
-    console.log(event.composedPath())
-    // @ts-ignore
-    document.getElementById("modal-background-create-post").classList.toggle("modal-active")
-    // @ts-ignore
-    document.getElementById("modal-background-create-post").children[0].classList.toggle("modal-active")
-  }
 }

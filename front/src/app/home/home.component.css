@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   margin: 0;
+  color : #308CC0;
 }
 
 .post-user-img{
@@ -40,27 +41,104 @@
 
 .post-img{
   width: 400px;
+  height: fit-content;
   margin-right: 30px;
+  border-radius: 10px;
 }
 
 .post-icon{
-  width: 24px;
+  width: 30px;
   margin-right: 10px;
 }
 
 .post-content{
   display: flex;
+  height: min-content;
 }
 
 .post-likes{
   font-size: 13px;
+  margin: 0;
 }
 
 .post-header p{
   font-weight: 600;
 }
 
-
 .post-details{
   width: 280px;
+  height: fit-content;
+}
+
+.post-text{
+  height: inherit;
+  overflow-y: scroll;
+}
+
+.post-text p{
+  cursor: pointer;
+}
+
+.text-more{
+  display: none;
+  margin: 0;
+}
+
+.more-button:hover{
+  color: #308CC0!important;
+}
+
+.comment-list{
+  padding: 10px 0;
+  height: 20%;
+  max-height: 13vh;
+  overflow-y: scroll;
+}
+
+.comment-background{
+  display: none;
+  width: 400px;
+  background: linear-gradient(180deg, rgba(48, 140, 192, 0.48) 0%, rgba(87, 22, 224, 0.53) 50%);
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.comment-active{
+  display: flex;
+  position: relative;
+}
+
+.comment{
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.comment p{
+  margin: 0;
+  font-size: 12px;
+}
+
+.account-name{
+  font-weight: 500;
+}
+
+.comment-account-image{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.comment-account-image img{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.post-content-left{
+  height: min-content;
 }

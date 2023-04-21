@@ -1,0 +1,47 @@
+
+<div class="signup-main">
+  <p id="signup-text">Sign Up</p>
+  <div class="outside-line-signup">
+    <form class = "signup-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm.value, $event)">
+      <div>
+          <p class="Upper-text">E-mail</p>
+        <div class ="email-frame-signup">
+          <img src="./assets/icons/signup-email.png" alt="email-icon" width=24>
+          <input name="email" ngModel placeholder="Your email" type="text">
+        </div>
+      </div>
+      <div>
+        <p class="Upper-text">Username</p>
+        <div class ="username-frame-signup">
+          <img src="./assets/icons/signup-username.png" alt="email-icon" width=24>
+          <input name="username" ngModel placeholder="Create your username" type="text">
+        </div>
+      </div>
+      <div>
+        <p class = "Upper-text">Password</p>
+        <div class = "password-frame-signup">
+          <img src="./assets/icons/signup-password.png" alt="email-icon" width=24>
+          <input name="password" ngModel placeholder="Your password" type="password">
+        </div>
+      </div>
+      <div>
+        <p class="Upper-text">Password verification</p>
+        <div class = "password-verif-frame">
+          <img src="./assets/icons/signup-password.png" alt="email-icon" width=24>
+          <input name="passwordVerification" ngModel placeholder="Verify your password" type="password">
+        </div>
+
+      </div>
+      <button id="signup-button">Sign up</button>
+
+    </form>
+
+    <div class="frame-signin">
+
+        <p id="have-acc"> Already have account? <a routerLink="/signin" id="link-signin"> Sign in</a>
+        </p>
+    </div>
+
+  </div>
+</div>
+
