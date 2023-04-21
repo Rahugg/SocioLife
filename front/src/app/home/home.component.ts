@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CommentSliderIndex, Post} from "../modules/Post"
-import {async} from "@angular/core/testing";
 
 @Component({
   selector: 'app-home',

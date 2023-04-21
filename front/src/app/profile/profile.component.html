@@ -1,1 +1,45 @@
-<div></div>
+<div class='profile-main'>
+  <div class="profile-info">
+    <div class="profile-photo">
+      <!--      <button></button>-->
+      <img class="profile-icon" src="./assets/icons/fluent_edit-20-regular.png">
+      <img class='avatar-profile' src="https://source.unsplash.com/c_GmwfHBDzk/200x200">
+      <!--      <button></button>-->
+      <img class="profile-icon" src="./assets/icons/ci_settings.png">
+    </div>
+    <div class="profile-data">
+      <h2 class="profile-followers">
+        0 followers
+      </h2>
+      <h4 class="name">@itsanna</h4>
+      <h2 class="profile-followers">
+        1 following
+      </h2>
+    </div>
+  </div>
+  <div class="profile-content">
+    <div *ngFor="let post of posts" class="post">
+      <div class="post-header">
+        <div class="post-user-img">
+          <img src="https://source.unsplash.com/c_GmwfHBDzk/200x200"/>
+        </div>
+        <p>@{{post.user}}</p>
+      </div>
+
+      <div class="post-content">
+        <img class="post-img" src="{{post.img}}"/>
+
+        <div class="post-details">
+          <p>{{post.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent
+            sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque.
+            Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac
+            lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada.
+            Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.</p>
+          <img class="post-icon" src="./assets/icons/like-icon.png"/>
+          <img class="post-icon" src="./assets/icons/comment-icon.png"/>
+          <p class="post-likes"> 322 likes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
