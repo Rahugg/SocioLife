@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommentSliderIndex, Post} from "../modules/Post"
+import {CommentSliderIndex, Post} from "../../models/Post"
 
 @Component({
   selector: 'app-home',
