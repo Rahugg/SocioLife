@@ -15,7 +15,7 @@ export class MainComponent {
     this.newPost = {} as Post
   }
 
-  openModel(event : any){
+  openModal(event : any){
     if(event.composedPath()[0].classList[0] == "modal-background"
       || event.composedPath()[0].classList[0] == "menu-button"
       || event.composedPath()[1].classList[0] == "menu-button"){

@@ -2,11 +2,21 @@
   <div class="profile-info">
     <div class="profile-photo">
       <!--      <button></button>-->
-      <img class="profile-icon" src="./assets/icons/fluent_edit-20-regular.png">
+      <img (click)="openModalEditProfile($event)" class="profile-icon"
+           src="./assets/icons/fluent_edit-20-regular.png">
       <img class='avatar-profile' src="https://source.unsplash.com/c_GmwfHBDzk/200x200">
       <!--      <button></button>-->
-      <img class="profile-icon" src="./assets/icons/ci_settings.png">
+
+      <div class="dropdown">
+        <img (click)="toggleDropdown()" class="profile-icon" src="./assets/icons/ci_settings.png">
+        <div *ngIf="showOptions" class="options-list">
+          <p (click)="openModalChangePassword($event)" class="change-password-option">Change password</p>
+          <p>Logout</p>
+
+        </div>
+      </div>
     </div>
+
     <div class="profile-data">
       <h2 class="profile-followers">
         0 followers
@@ -17,29 +27,117 @@
       </h2>
     </div>
   </div>
-  <div class="profile-content">
-    <div *ngFor="let post of posts" class="post">
-      <div class="post-header">
-        <div class="post-user-img">
-          <img src="https://source.unsplash.com/c_GmwfHBDzk/200x200"/>
+  <!--  MODAL CONTENT-->
+  <div (click)="openModalChangePassword($event)" class="modal-background" id="modal-background-change-password">
+    <form #postForm="ngForm" (ngSubmit)="changePassword(postForm.value, $event)" class="change-password-modal">
+      <div class="change-password-modal-left-side">
+        <div class="change-password-modal-header">
+          <div>
+            <p class="modal-header">Change Password</p>
+          </div>
+          <div class="change-password-input">
+            <p>
+              Password
+            </p>
+            <img class="change-password-icon" height="21px" src="assets/icons/vector.png" width="18px"/>
+            <input class="profile-change-password" maxlength="2000" name="title" ngModel placeholder="Old password"/>
+          </div>
+          <div class="change-password-input">
+            <p>
+              Password
+            </p>
+            <img class="change-password-icon" height="21px" src="assets/icons/vector.png" width="18px"/>
+            <input class="profile-change-password" maxlength="2000" name="title" ngModel placeholder="New password"/>
+          </div>
+          <div class="change-password-input">
+            <p>
+              Password verification
+            </p>
+            <img class="change-password-icon" height="21px" src="assets/icons/vector.png" width="18px"/>
+            <input class="profile-change-password" maxlength="2000" name="title" ngModel
+                   placeholder="Verify new password"/>
+          </div>
+          <button class="change-password-button" type="submit">Save changes</button>
         </div>
-        <p>@{{post.user}}</p>
+
       </div>
+    </form>
+  </div>
+  <div (click)="openModalEditProfile($event)" class="modal-background" id="modal-background-edit-profile">
+    <form #postForm="ngForm" (ngSubmit)="changePassword(postForm.value, $event)" class="change-password-modal">
+      <div class="change-password-modal-left-side">
+        <div class="change-password-modal-header">
+          <div>
+            <p class="modal-header">Edit Profile</p>
+          </div>
+          <div class="change-password-input">
+            <p>
+              Email
+            </p>
+            <img class="change-password-icon" height="16px" src="assets/icons/evaEmailFill0.png" width="20px"/>
+            <input class="profile-change-password" maxlength="2000" name="title" ngModel placeholder="Your email"/>
+          </div>
+          <div class="change-password-input">
+            <p>
+              Username
+            </p>
 
-      <div class="post-content">
-        <img class="post-img" src="{{post.img}}"/>
+            <img class="change-password-icon" height="18px" src="assets/icons/change-username.png" width="18px"/>
+            <input class="profile-change-password" maxlength="2000" name="title" ngModel placeholder="Your username"/>
+          </div>
+          <button class="change-password-button" type="submit">Save changes</button>
+        </div>
 
-        <div class="post-details">
-          <p>{{post.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent
-            sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque.
-            Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac
-            lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada.
-            Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.</p>
-          <img class="post-icon" src="./assets/icons/like-icon.png"/>
-          <img class="post-icon" src="./assets/icons/comment-icon.png"/>
-          <p class="post-likes"> 322 likes</p>
+      </div>
+    </form>
+  </div>
+
+  <div class="profile-content">
+    <div class="post-list">
+      <div *ngFor="let post of posts; let postIndex = index" class="post">
+        <div class="post-content">
+
+          <div class="post-content-left">
+            <img class="post-img" src="{{post.img}}"/>
+            <div [attr.id]="'postCommentList'+ postIndex " class="comment-list">
+
+              <div *ngFor="let comment of post.comments" class="comment-background comment-active">
+                <div class="comment">
+                  <div class="comment-account-image">
+                    <img src="./assets/anime-2.jpg"/>
+                  </div>
+                  <div>
+                    <p class="account-name">@{{comment.user}}</p>
+                    <p>
+                      {{comment.title}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-details">
+            <div class="post-header">
+              <div class="post-user-img">
+                <img src="./assets/anime-1.webp"/>
+              </div>
+              <p>@{{post.user}}</p>
+            </div>
+
+            <div class="post-text">
+              <p>{{post.title.slice(0, 100)}}<span (click)="showMoreText($event)" *ngIf="post.title.length > 100"
+                                                   class="more-button">...more</span></p>
+              <p (click)="showMoreText($event)" class="text-more">{{post.title}}</p>
+            </div>
+
+            <img (click)="likeThisPost($event, post)" class="post-icon" src="./assets/icons/icon-like-inactive.png"/>
+            <img class="post-icon" src="./assets/icons/icon-comment.png"/>
+            <p class="post-likes"> 56 likes</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

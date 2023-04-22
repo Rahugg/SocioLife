@@ -4,7 +4,7 @@
       <p id="Website-name">SocioLife</p>
       <div class="avatar-side-bar">
         <img class="avatar mat-elevation-z8" src="assets/anime-1.webp">
-        <p class="nickname-sidebar">
+        <p [routerLink]="['profile']" class="nickname-sidebar">
           @itsanna
         </p>
       </div>
@@ -20,7 +20,7 @@
         <span>Search</span>
       </button>
 
-      <button class="menu-button" mat-button routerLink="home" (click)="openModel($event)" >
+      <button (click)="openModal($event)" class="menu-button" mat-button routerLink="home">
         <img *ngIf="false" class="menu-icon" src="./assets/icons/icon-add-active.png">
         <img *ngIf="true" class="menu-icon" src="./assets/icons/icon-add-inactive.png">
         <span>Create</span>
@@ -35,29 +35,30 @@
     </div>
   </mat-sidenav>
 
-  <div class="modal-background" id="modal-background-create-post" (click)="openModel($event)">
-    <form class="create-post-modal" #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value, $event)">
+  <div (click)="openModal($event)" class="modal-background" id="modal-background-create-post">
+    <form #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value, $event)" class="create-post-modal">
       <div class="create-post-modal-left-side">
         <div class="post-header">
           <p class="modal-header">Create post</p>
 
           <div class="create-post-textarea">
-            <img src="assets/icons/icon-edit.png" class="post-icon"/>
-            <textarea placeholder="What's news?" maxlength="2000" ngModel name="title"></textarea>
+            <img class="post-icon" src="assets/icons/icon-edit.png"/>
+            <textarea maxlength="2000" name="title" ngModel placeholder="What's news?"></textarea>
           </div>
         </div>
 
         <div class="create-post-footer">
-          <button type="submit">Post</button >
+          <button type="submit">Post</button>
         </div>
       </div>
 
       <div class="create-post-add-photo">
-        <div class="image-container" *ngIf="newPost.img" >
-          <img src="{{newPost.img}}" alt="New post photo"/>
+        <div *ngIf="newPost.img" class="image-container">
+          <img alt="New post photo" src="{{newPost.img}}"/>
         </div>
-        <input (change)="uploadPhoto($event)" id="create-post-add-photo" type="file" accept="image/*" ngModel name="img"/>
-        <label  *ngIf="!newPost.img" for="create-post-add-photo">+</label>
+        <input (change)="uploadPhoto($event)" accept="image/*" id="create-post-add-photo" name="img" ngModel
+               type="file"/>
+        <label *ngIf="!newPost.img" for="create-post-add-photo">+</label>
       </div>
 
     </form>
