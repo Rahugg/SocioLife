@@ -6,6 +6,7 @@ import {SigninComponent} from "./components/signin/signin.component";
 import {MainComponent} from "./components/main/main.component";
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {ProfileComponent} from "./components/profile/profile.component";
+import {ForgotPasswordComponent} from "./components/forgot-password/forgot-password.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   {path: 'signin', component: SigninComponent},
   {path: "", redirectTo: "signin", pathMatch: 'full'},
+  {path: "forgot-password", component: ForgotPasswordComponent},
   {path: 'signup', component: SignupComponent},
   {path: '*', component: NotFoundComponent},
 

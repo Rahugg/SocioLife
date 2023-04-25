@@ -1,11 +1,14 @@
 .signup-main {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: conic-gradient(from 180deg at 50% 50%, rgba(53, 78, 91, 0) 0deg,
-    rgba(46, 133, 182, 0.42) 162.67deg, rgba(53, 78, 91, 0) 360deg);
-  height: 100% ;
+  rgba(46, 133, 182, 0.42) 162.67deg, rgba(53, 78, 91, 0) 360deg);
+  height: 100%;
+  margin-bottom: 10%;
 }
+
 .outside-line-signup {
   box-sizing: border-box;
   width: 477px;
@@ -20,11 +23,10 @@
   border-radius: 70px;
   padding: 28px 0;
 }
-#signup-text{
+
+#signup-text {
   height: 110px;
   left: 566px;
-  margin-left:50px;
-  margin-top: 52px;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -35,29 +37,32 @@
   text-align: center;
   justify-content: center;
   background: none;
-  position: absolute;
-  top: 0px;
+
   text-shadow: 0px 0px 8px #308CC0;
   color: #0e191e;
 }
+
 .signup-form {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
+
 .frame-signin {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.Upper-text{
+
+.Upper-text {
   color: #308CC0;
   margin-bottom: 2px;
 }
-.email-frame-signup{
+
+.email-frame-signup {
   width: 320px;
   border: none;
   border-radius: 20px;
@@ -68,25 +73,27 @@
   align-items: center;
 }
 
-.email-frame-signup  input{
+.email-frame-signup input {
   background: none;
   border: none;
-  font-weight: bold ;
+  font-weight: bold;
   margin-left: 10px;
 }
-.email-frame-signup  input:focus{
+
+.email-frame-signup input:focus {
   outline: none;
 }
-.email-frame-signup input::placeholder{
+
+.email-frame-signup input::placeholder {
   color: black;
   font-family: Inter, sans-serif;
   font-style: normal;
-  font-weight: bold ;
+  font-weight: bold;
   font-size: 12px;
   line-height: 17px;
 }
 
-.username-frame-signup{
+.username-frame-signup {
   width: 320px;
   border: none;
   border-radius: 20px;
@@ -96,23 +103,27 @@
   display: flex;
   align-items: center;
 }
-.username-frame-signup  input{
+
+.username-frame-signup input {
   background: none;
   border: none;
-  font-weight: bold ;
+  font-weight: bold;
   margin-left: 10px;
 }
-.username-frame-signup  input:focus{
+
+.username-frame-signup input:focus {
   outline: none;
 }
-.username-frame-signup  input::placeholder{
+
+.username-frame-signup input::placeholder {
   color: black;
   font-family: Inter, sans-serif;
   font-style: normal;
-  font-weight: bold ;
+  font-weight: bold;
   font-size: 13px;
   line-height: 17px;
 }
+
 .password-frame-signup {
   width: 320px;
   border: none;
@@ -123,24 +134,28 @@
   display: flex;
   align-items: center;
 }
-.password-frame-signup  input{
+
+.password-frame-signup input {
   background: none;
   border: none;
-  font-weight: bold ;
+  font-weight: bold;
   margin-left: 10px;
 }
-.password-frame-signup  input:focus{
+
+.password-frame-signup input:focus {
   outline: none;
 }
-.password-frame-signup  input::placeholder{
+
+.password-frame-signup input::placeholder {
   color: black;
   font-family: Inter, sans-serif;
   font-style: normal;
-  font-weight: bold ;
+  font-weight: bold;
   font-size: 13px;
   line-height: 17px;
 }
-.password-verif-frame{
+
+.password-verif-frame {
   width: 320px;
   border: none;
   border-radius: 20px;
@@ -150,29 +165,33 @@
   display: flex;
   align-items: center;
 }
-.password-verif-frame input{
+
+.password-verif-frame input {
   background: none;
   border: none;
-  font-weight: bold ;
+  font-weight: bold;
   margin-left: 10px;
 }
-.password-verif-frame  input:focus{
+
+.password-verif-frame input:focus {
   outline: none;
 }
-.password-verif-frame input::placeholder{
+
+.password-verif-frame input::placeholder {
   color: black;
   font-family: Inter, sans-serif;
   font-style: normal;
-  font-weight: bold ;
+  font-weight: bold;
   font-size: 13px;
   line-height: 17px;
 }
+
 #signup-button {
   font-family: Inter, Helvetica, Arial, sans-serif;
-  font-weight: bold ;
+  font-weight: bold;
   font-size: 13px;
   color: black;
-  background-color:#308CC0;
+  background-color: #308CC0;
   position: relative;
   width: 240px;
   height: 38px;
@@ -181,6 +200,7 @@
   margin-bottom: 15px;
   justify-content: center;
 }
+
 .frame-signin {
   width: 203px;
   height: 17px;
@@ -195,7 +215,8 @@
   align-items: center;
   color: #308CC0;
 }
-#have-acc  {
+
+#have-acc {
   font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #d9d9d9;

@@ -1,38 +1,36 @@
-
 <div class="signin-main">
-  <p id = "signin-text"> Sign in </p>
-  <div  class ="outside-line">
-
-  <form class="signin-form" #signinForm="ngForm" (ngSubmit)="login(signinForm.value, $event)">
-    <div>
-      <p class = "uppertext">Username</p>
-      <div class ="username-frame" id="username-frame">
-        <img src="./assets/icons/signup-username.png" alt="email-icon" width=24>
-        <input name="username" ngModel placeholder="Your username" type="text">
+  <p id="signin-text"> Sign in </p>
+  <div class="outside-line">
+    <form #signinForm="ngForm" (ngSubmit)="login(signinForm.value, $event)" class="signin-form">
+      <div>
+        <p class="uppertext">Username</p>
+        <div class="username-frame" id="username-frame">
+          <img alt="email-icon" src="./assets/icons/signup-username.png" width=24>
+          <input name="username" ngModel placeholder="Your username" type="text">
+        </div>
       </div>
-    </div>
-    <div>
-      <p class = "uppertext"> Password</p>
-      <div class="password-frame" id="password-frame">
-        <img src="./assets/icons/signup-password.png" alt="email-icon" width=24>
-        <input name="password" ngModel placeholder="Password" type="password">
+      <div>
+        <p class="uppertext"> Password</p>
+        <div class="password-frame" id="password-frame">
+          <img alt="email-icon" src="./assets/icons/signup-password.png" width=24>
+          <input name="password" ngModel placeholder="Password" type="password">
+        </div>
       </div>
+
+      <p id="login-error">Username or password is incorrect</p>
+      <button id="Entry-txt" type="submit">Sign in</button>
+
+    </form>
+
+    <div class="frame-signup">
+      <a href="#" routerLink="/forgot-password">
+        <p class="forgotten-password"> Forgot your password? </p>
+      </a>
+      <p class="no-acc"> First time in our app?
+        <a class="link-signup" routerLink="/signup"> Create an account.</a>
+      </p>
+
     </div>
-
-    <p id="login-error">Username or password is incorrect</p>
-    <button type="submit" id="Entry-txt">Sign in</button>
-
-  </form>
-
-  <div class="frame-signup">
-    <a href="">
-      <p class="forgotten-password"> Forgot your password? </p>
-    </a>
-    <p class="no-acc"> First time in our app?
-       <a routerLink="/signup" class="link-signup"> Create an account.</a>
-    </p>
-
-  </div>
   </div>
 </div>
 

@@ -1,101 +1,100 @@
-.post-list, .post{
+.post-list, .post {
   display: flex;
   flex-direction: column;
 }
 
-.post-list{
+.post-list {
   margin-top: 50px;
 }
 
-.post{
+.post {
   margin: 10px;
 }
 
-.post-header{
+.post-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.post-header p{
+.post-header p {
   height: 30px;
   display: flex;
   align-items: center;
   margin: 0;
-  color : #308CC0;
+  color: #308CC0;
 }
 
-.post-user-img{
+.post-user-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.post-user-img img{
+.post-user-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.post-img{
-  width: 400px;
+.post-img {
+  width: 430px;
   height: fit-content;
-  margin-right: 30px;
   border-radius: 10px;
 }
 
-.post-icon{
+.post-icon {
   width: 30px;
   margin-right: 10px;
 }
 
-.post-content{
+.post-content {
   display: flex;
   height: min-content;
 }
 
-.post-likes{
+.post-likes {
   font-size: 13px;
   margin: 0;
 }
 
-.post-header p{
+.post-header p {
   font-weight: 600;
 }
 
-.post-details{
+.post-details {
   width: 280px;
   height: fit-content;
 }
 
-.post-text{
+.post-text {
   height: inherit;
-  overflow-y: scroll;
 }
 
-.post-text p{
+.post-text p {
   cursor: pointer;
 }
 
-.text-more{
+.text-more {
   display: none;
   margin: 0;
 }
 
-.more-button:hover{
-  color: #308CC0!important;
+.more-button:hover {
+  color: #308CC0 !important;
 }
 
-.comment-list{
+.comment-list {
   padding: 10px 0;
   height: 20%;
   max-height: 13vh;
+  margin-top:10px;
   overflow-y: scroll;
 }
 
-.comment-background{
+.comment-background {
   display: none;
   width: 400px;
   background: linear-gradient(180deg, rgba(48, 140, 192, 0.48) 0%, rgba(87, 22, 224, 0.53) 50%);
@@ -103,28 +102,28 @@
   margin-bottom: 10px;
 }
 
-.comment-active{
+.comment-active {
   display: flex;
   position: relative;
 }
 
-.comment{
+.comment {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   padding: 10px;
 }
 
-.comment p{
+.comment p {
   margin: 0;
   font-size: 12px;
 }
 
-.account-name{
+.account-name {
   font-weight: 500;
 }
 
-.comment-account-image{
+.comment-account-image {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -132,13 +131,30 @@
   margin-left: 10px;
 }
 
-.comment-account-image img{
+.comment-account-image img {
   width: inherit;
   height: inherit;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.post-content-left{
+.post-content-left {
   height: min-content;
+  margin-right: 2%;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #308CC0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #308CC0;
+}
+
