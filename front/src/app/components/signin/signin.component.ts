@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from "../../models/User";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-signin',
@@ -7,12 +8,10 @@ import {User} from "../../models/User";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  users : User[]
+  users : User[] = []
 
-  constructor() {
-    this.users = [
-      new User("aknur@gmail.com", "aknur", "123" )
-    ]
+  constructor(public app : AppComponent) {
+    this.users = app.users
   }
 
   login(value : any, $event : any){

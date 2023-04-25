@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommentSliderIndex, Post} from "../../models/Post"
+import {Post, Comment} from "../../models/Post"
 
 @Component({
   selector: 'app-home',
@@ -8,21 +8,15 @@ import {CommentSliderIndex, Post} from "../../models/Post"
 })
 export class HomeComponent implements OnInit{
   posts : Post[] = []
-  commentIndexes : CommentSliderIndex[] = []
-  currentCommentIndex = 0
 
   constructor() {
     this.posts = [
-      new Post("naruto", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
-        "./assets/anime-3.webp"),
-      new Post("naruto", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
-        "./assets/anime-1.webp"),
-      new Post("itashi", "The best animeeeeee", "./assets/anime-1.webp")
+      new Post("itashi",  "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
+        "./assets/anime-3.webp", "Do you have a favorite voice actor?"),
+      new Post("kugo", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
+        "./assets/anime-1.webp", ""),
+      new Post("naruto", "The best animeeeeee", "./assets/anime-1.webp", "")
     ]
-
-    for (let i = 0; i < this.posts.length; i++) {
-      this.commentIndexes.push({ currentIndex : 0, length : this.posts[i].comments.length});
-    }
   }
 
   showMoreText(event : any){
@@ -36,21 +30,6 @@ export class HomeComponent implements OnInit{
       event.composedPath()[1].children[1].style.display = "none"
       event.composedPath()[1].children[0].children[0].style.display = ""
     }
-  }
-
-  commentSlider(commentsLength : number, index : number){
-    setInterval(() => {
-      this.commentIndexes[index].currentIndex === (this.commentIndexes[index].length-1) ? this.commentIndexes[index].currentIndex = 0: this.commentIndexes[index].currentIndex++;
-    }, 6000);
-  }
-
-
-  scrollComment2(currentCommentList : any, i : number){
-    currentCommentList.scroll({
-      top: i * 50,
-      left: 0,
-      behavior: 'smooth',
-    });
   }
 
   async commentScroll(){
@@ -80,31 +59,25 @@ export class HomeComponent implements OnInit{
     }
   }
 
+  postComment(value : any){
+    // var newComment : Comment
 
-  ngOnInit(): void {
-    // for (let i = 0; i < this.posts.length; i++) {
-    //   this.commentScroll(this.posts[i].comments.length, i)
-    // }
+    // newComment =
 
-    this.posts[0].comments.push(
-      {title : "Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7})
-
-
-    this.posts[1].comments.push(
-      {title : "Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7},
-      {title : "Cool! Cool! Cool! Cool! Cool!", user : "itashi", userImage : "./assets/anime-3.webp", id : 7})
-
-    this.commentScroll()
   }
 
-  private scrollToBottom() {
+  ngOnInit(): void {
 
+    this.posts[0].comments.push(
+      new Comment("itashi", "Cool"),
+      new Comment("itashi", "Cool! Cool! Cool!"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool! Cool!"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool!"))
+
+    this.posts[1].comments.push(
+      new Comment("itashi", "Cool"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool!"))
+
+    this.commentScroll()
   }
 }

@@ -1,6 +1,5 @@
 <div class="home">
   <div class="post-list">
-<!--<<<<<<< HEAD-->
     <div class="post" *ngFor="let post of posts; let postIndex = index">
       <div class="post-content">
 
@@ -8,7 +7,7 @@
           <img src="{{post.img}}" class="post-img"/>
           <div class="comment-list" [attr.id]="'postCommentList'+ postIndex ">
 
-            <div *ngFor="let comment of post.comments" class="comment-background comment-active">
+            <div *ngFor="let comment of post.comments" class="comment-background">
               <div class="comment">
                 <div class="comment-account-image">
                   <img src="./assets/anime-2.jpg"/>
@@ -22,25 +21,14 @@
               </div>
             </div>
 
-<!--            <div *ngFor="let comment of post.comments; let commentIndex = index" class="comment-background" [ngClass]="{'comment-active': commentIndexes[postIndex].currentIndex === commentIndex}">-->
-<!--              <div class="comment">-->
-<!--                <div class="comment-account-image">-->
-<!--                  <img src="./assets/anime-2.jpg"/>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                  <p class="account-name">@{{comment.user}}</p>-->
-<!--                  <p>-->
-<!--                    {{comment.title.slice(0, 100)}}-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div *ngIf="post.comments.length == 0">-->
-<!--              <p class="comment">No comments yet... </p>-->
-<!--            </div>-->
-
+            <div class="comment-background">
+              <form class="comment new-comment" #comment="ngForm" (ngSubmit)="postComment(comment.value)">
+                <input ngModel name="text" placeholder="{{post.question}} or add your comment"/>
+                <button> > </button>
+              </form>
+            </div>
           </div>
+
         </div>
         <div class="post-details">
           <div class="post-header">
@@ -56,7 +44,6 @@
           </div>
 
           <img src="./assets/icons/icon-like-inactive.png" class="post-icon" (click)="likeThisPost($event, post)"/>
-          <img src="./assets/icons/icon-comment.png" class="post-icon"/>
           <p class="post-likes"> 56 likes</p>
         </div>
       </div>
@@ -64,4 +51,3 @@
 
   </div>
 </div>
-

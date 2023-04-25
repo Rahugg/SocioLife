@@ -95,16 +95,11 @@
 }
 
 .comment-background {
-  display: none;
+  display: flex;
   width: 400px;
   background: linear-gradient(180deg, rgba(48, 140, 192, 0.48) 0%, rgba(87, 22, 224, 0.53) 50%);
   border-radius: 20px;
   margin-bottom: 10px;
-}
-
-.comment-active {
-  display: flex;
-  position: relative;
 }
 
 .comment {
@@ -141,6 +136,26 @@
 .post-content-left {
   height: min-content;
   margin-right: 2%;
+}
+
+.comment input, .comment button{
+  background: none;
+  border: none;
+  color: #308CC0;
+}
+
+.comment input{
+  width: 100%;
+}
+
+.comment input:focus{
+  outline: none;
+}
+
+.new-comment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 ::-webkit-scrollbar {
