@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Post, Comment} from '../../models/Post';
+import {Post} from '../../models/Post';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +9,13 @@ import {Post, Comment} from '../../models/Post';
 export class ProfileComponent {
   posts: Post[] = []
   showOptions = false;
+  private router: any;
+
   constructor() {
     this.posts = [
-      new Post("itashi",  "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
+      new Post("itashi", "The best anime Lorem ipsum  tincidunt.",
         "./assets/anime-3.webp", "Do you have a favorite voice actor?"),
-      new Post("kugo", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
+      new Post("kugo", "The best anime Lorem ipsum dolor sit amet,ibus erat. St, ac r neque tempus malesuada. Curabitur sednt.",
         "./assets/anime-1.webp", ""),
       new Post("naruto", "The best animeeeeee", "./assets/anime-1.webp", "")
     ]
@@ -45,6 +47,10 @@ export class ProfileComponent {
 
   toggleDropdown() {
     this.showOptions = !this.showOptions;
+  }
+
+  Logout() {
+    window.location.href = 'signin';
   }
 
   showMoreText(event: any) {

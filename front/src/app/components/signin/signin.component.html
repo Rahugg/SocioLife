@@ -4,20 +4,20 @@
     <form #signinForm="ngForm" (ngSubmit)="login(signinForm.value, $event)" class="signin-form">
       <div>
         <p class="uppertext">Username</p>
-        <div class="username-frame" id="username-frame">
+        <div class="username-frame" [class.login-error]="loginErrorActive">
           <img alt="email-icon" src="./assets/icons/signup-username.png" width=24>
           <input name="username" ngModel placeholder="Your username" type="text">
         </div>
       </div>
       <div>
         <p class="uppertext"> Password</p>
-        <div class="password-frame" id="password-frame">
+        <div class="password-frame" [class.login-error]="loginErrorActive">
           <img alt="email-icon" src="./assets/icons/signup-password.png" width=24>
           <input name="password" ngModel placeholder="Password" type="password">
         </div>
       </div>
 
-      <p id="login-error">Username or password is incorrect</p>
+      <p id="login-error" [class.login-error-active]="loginErrorActive">Username or password is incorrect</p>
       <button id="Entry-txt" type="submit">Sign in</button>
 
     </form>
@@ -33,4 +33,3 @@
     </div>
   </div>
 </div>
-

@@ -11,7 +11,7 @@
         <img (click)="toggleDropdown()" class="profile-icon" src="./assets/icons/ci_settings.png">
         <div *ngIf="showOptions" class="options-list">
           <p (click)="openModalChangePassword($event)" class="change-password-option">Change password</p>
-          <p>Logout</p>
+          <p (click)="Logout()">Logout</p>
 
         </div>
       </div>
