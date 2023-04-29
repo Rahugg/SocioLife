@@ -1,4 +1,7 @@
+import {User} from "./User";
+
 export class Post{
+  static postNumber = 0
   id: number;
   user: String;
   title: String;
@@ -9,7 +12,7 @@ export class Post{
   liked : boolean // if there is current user's id in liked users list
 
   constructor(user : String, title : String, img: String, question : String) {
-    this.id = 0
+    this.id = Post.postNumber++
     this.user = user
     this.title = title
     this.question = question

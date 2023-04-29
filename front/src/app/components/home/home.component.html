@@ -17,14 +17,15 @@
                   <p>
                     {{comment.title}}
                   </p>
+
                 </div>
               </div>
             </div>
 
             <div class="comment-background">
-              <form class="comment new-comment" #comment="ngForm" (ngSubmit)="postComment(comment.value)">
-                <input ngModel name="text" placeholder="{{post.question}} or add your comment"/>
-                <button> > </button>
+              <form class="comment new-comment" #comment="ngForm" (ngSubmit)="postComment(comment.value, post.id)">
+                <input ngModel name="comment" placeholder="{{post.question}} or add your comment"/>
+                <button type="submit"> > </button>
               </form>
             </div>
           </div>

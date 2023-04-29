@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Post, Comment} from "../../models/Post"
+import {AppComponent} from "../../app.component";
+import {MainComponent} from "../main/main.component";
+import {SigninComponent} from "../signin/signin.component";
+import {User} from "../../models/User";
 
 @Component({
   selector: 'app-home',
@@ -8,16 +12,9 @@ import {Post, Comment} from "../../models/Post"
 })
 export class HomeComponent implements OnInit{
   posts : Post[] = []
-
-  constructor() {
-    this.posts = [
-      new Post("itashi",  "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
-        "./assets/anime-3.webp", "Do you have a favorite voice actor?"),
-      new Post("kugo", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
-        "./assets/anime-1.webp", ""),
-      new Post("naruto", "The best animeeeeee", "./assets/anime-1.webp", "")
-    ]
+  constructor(public mainComponent : MainComponent) {
   }
+
 
   showMoreText(event : any){
     if(event.composedPath()[0].classList[0] == "more-button") {
@@ -59,14 +56,15 @@ export class HomeComponent implements OnInit{
     }
   }
 
-  postComment(value : any){
-    // var newComment : Comment
-
-    // newComment =
-
+  postComment(value : any, postId : number){
+    var newComment = new Comment("itsanna", value.comment )
+    const currentPost = this.posts.filter(post => post.id == postId)[0]
+    currentPost.comments.push(newComment)
   }
 
   ngOnInit(): void {
+
+    this.posts = this.mainComponent.posts
 
     this.posts[0].comments.push(
       new Comment("itashi", "Cool"),
@@ -79,5 +77,6 @@ export class HomeComponent implements OnInit{
       new Comment("itashi", "Cool! Cool! Cool! Cool!"))
 
     this.commentScroll()
+
   }
 }

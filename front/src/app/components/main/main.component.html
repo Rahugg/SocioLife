@@ -24,7 +24,7 @@
   </mat-sidenav>
 
   <div class="modal-background" id="modal-background-create-post" (click)="closeModel($event)">
-    <form class="create-post-modal" #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value, $event)">
+    <form class="create-post-modal" #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value)">
       <div class="create-post-modal-left-side">
         <div class="post-header">
           <p class="modal-header">Create post</p>
@@ -49,7 +49,7 @@
         <div *ngIf="newPost.img" class="image-container">
           <img alt="New post photo" src="{{newPost.img}}"/>
         </div>
-        <input (change)="uploadPhoto($event)" accept="image/*" id="create-post-add-photo" name="img" ngModel
+        <input (change)="onFileSelected($event)" accept="image/*" id="create-post-add-photo" name="img" ngModel
                type="file"/>
         <label *ngIf="!newPost.img" for="create-post-add-photo">+</label>
       </div>
