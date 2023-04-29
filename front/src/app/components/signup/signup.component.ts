@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { User } from '../../models/User';
-import { AppComponent } from '../../app.component';
+import {Component} from '@angular/core';
+import {User} from '../../models/User';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +16,11 @@ export class SignupComponent {
 
   signup(value: any, $event: any) {
     if (!(value.email && value.username && value.password && value.passwordVerification)) {
-      // handle invalid input
+      alert("Not valid password")
       return;
     }
-
-    // handle valid input
+    this.users.push(new User(value.email, value.username, value.password));
+    console.log(this.users[this.users.length - 1])
+    window.location.href = 'signin';
   }
 }
