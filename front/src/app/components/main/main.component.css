@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap');
 
-body{
+body {
   background: conic-gradient(from 180deg at 50% 50%, rgba(53, 78, 91, 0) 0deg, rgba(46, 133, 182, 0.42) 162.67deg, rgba(53, 78, 91, 0) 360deg);
 }
 
@@ -44,11 +44,11 @@ span {
 }
 
 mat-sidenav-container {
-  height:  100vh;
+  height: 100vh;
   background: conic-gradient(from 180deg at 50% 50%, rgba(53, 78, 91, 0) 0deg, rgba(46, 133, 182, 0.42) 162.67deg, rgba(53, 78, 91, 0) 360deg);
 }
 
-.mat-drawer-inner-container{
+.mat-drawer-inner-container {
   border-right: 1px solid rgba(48, 140, 192, 0.26);
 }
 
@@ -65,23 +65,23 @@ mat-sidenav-container {
   padding: 10px 10px 10px 15px;
 }
 
-.menu-button:hover{
+.menu-button:hover {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 }
 
-.menu-button-is-active{
+.menu-button-is-active {
   color: #308CC0;
-  font-weight: bold!important;
+  font-weight: bold !important;
 }
 
 .menu-icon {
   margin-right: 8px;
-  width:35px;
+  width: 35px;
   height: 35px;
 }
 
-mat-icon{
+mat-icon {
   margin-right: 5px;
 }
 
@@ -113,7 +113,7 @@ mat-icon{
   cursor: pointer;
 }
 
-.nickname-sidebar:hover{
+.nickname-sidebar:hover {
   color: #299dde;
 }
 
@@ -126,25 +126,26 @@ mat-divider {
 
 
 /* MODAL */
-#Website-name, .modal-header{
+#Website-name, .modal-header {
   line-height: 30px;
   display: flex;
   margin-left: 5px;
   margin-top: 30px;
-  font-family: 'Rubik', sans-serif!important;
+  font-family: 'Rubik', sans-serif !important;
   font-style: normal;
   background: none;
   text-shadow: 0px 0px 4px #22a2ea;
   color: #0e191e;
   font-weight: 300;
   font-size: 50px;
+  cursor: pointer;
 }
 
-.modal-header{
+.modal-header {
   font-size: 40px;
 }
 
-.modal-background{
+.modal-background {
   display: none;
   justify-content: center;
   align-items: center;
@@ -157,7 +158,7 @@ mat-divider {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.create-post-modal{
+.create-post-modal {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -171,11 +172,11 @@ mat-divider {
   margin-left: 15%;
 }
 
-.modal-active{
+.modal-active {
   display: flex;
 }
 
-.create-post-textarea textarea{
+.create-post-textarea textarea {
   background: none;
   border: none;
   height: inherit;
@@ -188,28 +189,28 @@ mat-divider {
   color: #308CC0;
 }
 
-.create-post-textarea textarea:focus, .modal-search input:focus, .question-input input:focus{
+.create-post-textarea textarea:focus, .modal-search input:focus, .question-input input:focus {
   outline: none;
 }
 
-.create-post-textarea img{
+.create-post-textarea img {
   height: 24px;
 }
 
-.create-post-textarea{
+.create-post-textarea {
   display: flex;
   margin-top: 30px;
 }
 
 
-.create-post-footer{
+.create-post-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: inherit;
 }
 
-.create-post-footer button{
+.create-post-footer button {
   padding: 10px 20px;
   border: none;
   font-family: Inter, sans-serif;
@@ -220,45 +221,45 @@ mat-divider {
   color: #000;
 }
 
-.main-content{
+.main-content {
   display: flex;
   justify-content: center;
 }
 
-.post-header{
+.post-header {
   display: flex;
   flex-direction: column;
   align-content: space-between;
   margin-bottom: 10px;
 }
 
-.post-header p{
+.post-header p {
   height: 30px;
   display: flex;
   margin: 0;
 }
 
-.post-user-img{
+.post-user-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.post-user-img img{
+.post-user-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.post-icon{
+.post-icon {
   width: 24px;
   margin-right: 10px;
 }
 
 
-.create-post-add-photo input{
+.create-post-add-photo input {
   display: none;
 }
 
@@ -276,7 +277,7 @@ mat-divider {
   font-family: 'Crimson Text', serif;
 }
 
-.create-post-modal-left-side{
+.create-post-modal-left-side {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -284,19 +285,19 @@ mat-divider {
   height: fit-content;
 }
 
-.create-post-add-photo .image-container{
+.create-post-add-photo .image-container {
   width: 350px;
   border-radius: 10px;
 }
 
-.create-post-add-photo .image-container img{
+.create-post-add-photo .image-container img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 10px;
 }
 
-.modal-search{
+.modal-search {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -312,7 +313,7 @@ mat-divider {
   top: 30%;
 }
 
-.modal-search input, .question-input input{
+.modal-search input, .question-input input {
   background: none;
   border: none;
   height: fit-content;
@@ -322,29 +323,29 @@ mat-divider {
   color: #308CC0;
 }
 
-.modal-search .user{
+.modal-search .user {
   display: flex;
   align-items: center;
 }
 
-.modal-search .user p{
+.modal-search .user p {
   margin-top: 10px;
 }
 
-.modal-search .post-user-img{
+.modal-search .post-user-img {
   width: 34px;
   height: 34px;
 }
 
-.modal-search .line{
+.modal-search .line {
   height: 2px;
 }
 
-.question-input{
+.question-input {
   margin-bottom: 20px;
 }
 
-.question-input p{
+.question-input p {
   margin-left: 2px;
   font-size: 12px;
 }
