@@ -1,8 +1,12 @@
 
 .profile-main {
-  width: 1000px;
-  height: 100vh;
+  width: 1010px;
+  height: fit-content;
+  border-radius: 30px;
+}
 
+.profile-main .post{
+  width: 100%;
 }
 
 .profile-photo {
@@ -41,6 +45,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 10%;
 }
 
 .avatar-profile {
@@ -278,33 +283,51 @@
 }
 
 .profile-change-password {
+  display: flex;
+  align-items: center;
+}
+
+.change-password-input-container p{
+  margin: 0 0 5px 0;
+}
+
+.change-password-input{
+  display: flex;
+  align-items: center;
   width: 350px;
   height: 60px;
   color: #000000;
   background: #5BAAD7;
   border-radius: 20px;
   padding: 10px;
-  text-align: center;
 }
 
 .change-password-input img {
-  padding: 30px;
   display: flex;
   justify-content: center;
-  position: absolute;
+  margin: 10px;
 }
 
-::placeholder {
-  color: #000000;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
+.change-password-input input{
+  width: 85%;
+  background: none;
+  border: none;
+}
+
+.change-password-input input::placeholder{
+  color: #262626;
+  font-weight: 400;
   font-size: 14px;
+}
+
+.change-password-input input:focus{
+  outline: none;
 }
 
 .change-password-button {
   background: linear-gradient(180deg, #308CC0 0%, #5716E0 100%);
   border-radius: 15px;
+  border: none;
   width: 200px;
   height: 38px;
   color: black;
@@ -312,9 +335,14 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
+  cursor: pointer;
 }
 
-/*DROPDOWN */
+.change-password-button:hover{
+  background: linear-gradient(180deg, #3898cc 0%, #6526e8 100%);
+}
+
+  /*DROPDOWN */
 .dropdown {
   position: relative;
 }
@@ -333,19 +361,31 @@
   color: white;
   cursor: pointer;
 }
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background-color: none;
+  background: none;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #308CC0;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #308CC0;
 }
 
+.profile-photo .image-container{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 
+.profile-photo .image-container img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}

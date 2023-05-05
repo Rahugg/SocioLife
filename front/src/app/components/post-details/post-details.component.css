@@ -65,7 +65,7 @@
 }
 
 .post-details {
-  width: 40%;
+  width: 44%;
   height: 90vh;
   overflow-y: scroll;
   padding-right: 10px;
@@ -199,7 +199,7 @@
   background: linear-gradient(180deg, #308CC0 0%, #5716E0 100%);
 }
 
-.post{
+.post-home{
   padding-top: 80px;
 }
 

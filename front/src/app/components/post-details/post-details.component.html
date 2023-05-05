@@ -1,4 +1,4 @@
- <div *ngIf="currentPost" class="post" id="post-details">
+ <div *ngIf="currentPost" class="post" [ngClass]="itIsHomePage ? 'post-home' : ''" id="post-details">
     <div class="post-content">
       <div class="post-content-left">
         <img src="{{currentPost.img}}" class="post-img"/>

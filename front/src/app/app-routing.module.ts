@@ -21,14 +21,18 @@ const routes: Routes = [
           {path: ":id", component: PostDetailsComponent},
           {path: "*", redirectTo: "", pathMatch: 'full'}
         ] },
-      {path: 'profile', component: ProfileComponent}
-    ]
+      {path: 'profile', component: ProfileComponent, children: [
+          {path: "", component: PostListComponent},
+          {path: ":id", component: PostDetailsComponent},
+          {path: "*", redirectTo: "", pathMatch: 'full'}
+    ]}]
   },
   {path: 'signin', component: SigninComponent},
   {path: "", redirectTo: "signin", pathMatch: 'full'},
   {path: "forgot-password", component: ForgotPasswordComponent},
   {path: 'signup', component: SignupComponent},
-  {path: '*', component: NotFoundComponent},
+  {path: '*', component: NotFoundComponent}
+
 ];
 
 @NgModule({
@@ -36,4 +40,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+
 }
+

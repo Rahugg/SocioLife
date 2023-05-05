@@ -2,9 +2,11 @@
   <mat-sidenav mode="side" opened id="sidenav">
     <div class="content-side">
       <p [routerLink]="['home']" id="Website-name">SocioLife</p>
-      <div class="avatar-side-bar">
-        <img class="avatar mat-elevation-z8" src="assets/anime-1.webp">
-        <p [routerLink]="['profile']" class="nickname-sidebar">
+      <div [routerLink]="['profile']"  class="avatar-side-bar">
+        <div class="image-container">
+          <img src="assets/anime-1.webp">
+        </div>
+        <p class="nickname-sidebar">
           @itsanna
         </p>
       </div>

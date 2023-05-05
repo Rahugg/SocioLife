@@ -15,7 +15,9 @@ export class PostListComponent implements OnInit{
   posts : Post[] = []
   postListCategories : PostListCategory[]
   currentPost : Post | undefined
+  itIsHomePage : boolean
   constructor(public mainComponent : MainComponent) {
+    this.itIsHomePage = window.location.pathname.includes("home")
     this.posts = this.mainComponent.posts
     this.postListCategories = [
       {name : "For you", isActive : true},

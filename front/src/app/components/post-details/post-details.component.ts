@@ -11,7 +11,9 @@ import {Comment, Post} from "../../models/Post";
 export class PostDetailsComponent implements OnInit{
   currentPost : Post = new Post("kugo", "The best anime Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lacinia magna. Praesent sed tempus nulla, ac faucibus erat. Sed iaculis purus id nisl placerat, ac tincidunt orci scelerisque. Quisque hendrerit enim ut ex vulputate, ac convallis magna iaculis. Suspendisse lacus leo, iaculis ac lobortis sed, lacinia in lorem. Pellentesque scelerisque odio ligula, a porttitor neque tempus malesuada. Curabitur sed tincidunt sem. Sed nec nulla nec nunc pretium tincidunt.",
     "./assets/anime-1.webp", "")
+  itIsHomePage : boolean
   constructor() {
+    this.itIsHomePage = window.location.pathname.includes("home")
     this.currentPost.comments.push(
       new Comment("itashi", "Cool"),
       new Comment("itashi", "Cool! Cool! Cool!"),

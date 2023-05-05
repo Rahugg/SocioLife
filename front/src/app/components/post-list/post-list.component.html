@@ -1,6 +1,6 @@
 <div class="post-list">
 
-  <div class="class-list-mode">
+  <div class="class-list-mode" *ngIf="itIsHomePage">
     <p *ngFor="let category of postListCategories"
        [ngClass]="category.isActive ? 'category-active' : ''"
        (click)="switchCategory(category)"

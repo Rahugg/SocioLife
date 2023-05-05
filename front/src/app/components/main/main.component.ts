@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Comment, Post} from "../../models/Post";
 import {User} from "../../models/User";
 import {AppComponent} from "../../app.component";
@@ -19,7 +19,7 @@ interface MenuButton{
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent {
+export class MainComponent implements OnInit{
   title = 'SocioLife';
   users : User[] = []
   posts : Post[] = []
@@ -39,7 +39,7 @@ export class MainComponent {
       {name : "Home", isActive : true, activeIcon :  "./assets/icons/icon-home-active.png", inactiveIcon :  "./assets/icons/icon-home-inactive.png", elementId: ""},
       {name : "Search", isActive : false, activeIcon :  "./assets/icons/icon-search-active.png", inactiveIcon :  "./assets/icons/icon-search-inactive.png", elementId: "modal-background-create-post"},
       {name : "Create", isActive : false, activeIcon : "./assets/icons/icon-add-active.png", inactiveIcon :  "./assets/icons/icon-add-inactive.png", elementId: "modal-background-search"},
-      {name : "Notifications", isActive : false, activeIcon : "./assets/icons/icon-notifications.png", inactiveIcon :  "./assets/icons/icon-notifications-inactive.png", elementId: "notification-bar"}
+      {name : "Notifications", isActive : false, activeIcon : "./assets/icons/icon-notifications.png", inactiveIcon :  "./assets/icons/icon-notifications-inactive.png", elementId: "notification-bar"},
     ]
 
     this.posts = [
@@ -61,34 +61,46 @@ export class MainComponent {
       new Comment("itashi", "Cool! Cool! Cool! Cool!"))
   }
 
+  ngOnInit(): void {
+
+  }
+
   isMenuButton(event : any) : boolean{
-    if(event.composedPath()[0].classList[0] == "modal-background"
+    return event.composedPath()[0].classList[0] == "modal-background"
       || event.composedPath()[0].classList[0] == "menu-button"
-      || event.composedPath()[1].classList[0] == "menu-button"){
-      return true
+      || event.composedPath()[1].classList[0] == "menu-button";
+  }
+
+  deactivateAllMenuButtons(){
+    this.menuButtons.forEach(button => {
+      button.isActive = false
+      if (button.elementId) {
+        const buttonElement = <HTMLElement>document.getElementById(button.elementId)
+        buttonElement.classList.remove("modal-active")
+      }
+    })
+  }
+
+  deactivateMenuButton(index : number, element : HTMLElement){
+    if(!element.classList.contains("modal-active")){
+      this.menuButtons[index].isActive = false
     }
-    return false
   }
 
   chooseMenu(event : any, index : number) {
     const currentMenuButton = this.menuButtons[index];
 
     if(this.currentMenuButtonName != currentMenuButton.name) {
-      this.menuButtons.forEach(button => {
-        button.isActive = false
-        if (button.elementId) {
-          const buttonElement = <HTMLElement>document.getElementById(button.elementId)
-          buttonElement.classList.remove("modal-active")
-        }
-      })
+      this.deactivateAllMenuButtons()
     }
 
-    currentMenuButton.isActive = true
+    this.menuButtons[index].isActive = true
 
     if (currentMenuButton.name == "Create") {
       if (this.isMenuButton(event)) {
         const createPostElement = <HTMLElement> document.getElementById(currentMenuButton.elementId);
         createPostElement.classList.toggle("modal-active")
+        this.deactivateMenuButton(index, createPostElement)
         this.newPost.title = ""
         this.newPost.img = ""
       }
@@ -96,14 +108,19 @@ export class MainComponent {
       if (this.isMenuButton(event)) {
         const searchElement = <HTMLElement> document.getElementById(currentMenuButton.elementId);
         searchElement.classList.toggle("modal-active")
+        this.deactivateMenuButton(index, searchElement)
       }
     } else if(currentMenuButton.name == "Notifications"){
       const notificationBar = <HTMLElement> document.getElementById(currentMenuButton.elementId);
       notificationBar.classList.toggle("modal-active")
-      const menuBar = <HTMLElement> document.getElementById("sidenav")
-      console.log(menuBar)
+      this.deactivateMenuButton(index, notificationBar)
     }
+
     this.currentMenuButtonName = currentMenuButton.name
+
+    if(this.menuButtons.filter(button => button.isActive).length == 0){
+      this.menuButtons[0].isActive = true
+    }
   }
 
   closeModel(event : any){

@@ -8,6 +8,9 @@ html, body {
 }
 body {
   margin: 0;
+}
+
+body, p,  div, button, input, input::placeholder{
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
