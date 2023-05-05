@@ -24,7 +24,7 @@
   </mat-sidenav>
 
   <div class="modal-background" id="modal-background-create-post" (click)="closeModel($event)">
-    <form class="create-post-modal" #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value)">
+    <form class="create-post-modal" #postForm="ngForm" (ngSubmit)="createNewPost(postForm.value, $event)">
       <div class="create-post-modal-left-side">
         <div class="post-header">
           <p class="modal-header">Create post</p>
@@ -45,21 +45,40 @@
         </div>
       </div>
 
-      <div class="create-post-add-photo">
-        <div *ngIf="newPost.img" class="image-container">
-          <img alt="New post photo" src="{{newPost.img}}"/>
-        </div>
-        <input (change)="onFileSelected($event)" accept="image/*" id="create-post-add-photo" name="img" ngModel
-               type="file"/>
-        <label *ngIf="!newPost.img" for="create-post-add-photo">+</label>
-      </div>
+      <div *ngIf="!webcamIsActive"  class="create-post-add-photo">
+        <div class="create-post-add-photo-inputs">
+          <input (change)="onFileSelected($event)" accept="image/*" id="create-post-upload-image" name="img" ngModel
+                 type="file"/>
 
+          <label for="create-post-upload-image"><img src="assets/icons/icon-upload.png"/></label>
+          <div class="create-post-camera-icon" (click)="handleWebcam()">
+            <img src="assets/icons/icon-camera.png"/>
+          </div>
+        </div>
+      </div>
     </form>
+
+    <div *ngIf="webcamIsActive" class="webcam" id="webcam">
+      <button (click)="handleWebcam()"><img src="assets/icons/icon-close.png"/></button>
+      <app-webcamera
+        (getPicture)="handleWebCamImage($event)"
+      ></app-webcamera>
+    </div>
+
+    <div *ngIf="newPost.img" class="image-container">
+      <button (click)="handleReplaceImage()"><img src="assets/icons/icon-replace.png"/></button>
+      <img alt="New post photo" src="{{newPost.img}}"/>
+    </div>
+
   </div>
 
   <div class="modal-background" id="modal-background-search" (click)="closeModel($event)">
     <div class="modal-search">
-      <input type="text" #search name="text" ngModel placeholder="Search" (input)="handleSearch(search.value)"/>
+
+     <div class="modal-search-inputs">
+       <img src="assets/icons/icon-search-gray.png"/>
+       <input type="text" #search name="text" ngModel placeholder="Search" (input)="handleSearch(search.value)"/>
+     </div>
 
       <mat-divider></mat-divider>
 

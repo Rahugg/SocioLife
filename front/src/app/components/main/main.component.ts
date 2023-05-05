@@ -1,8 +1,9 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {Post} from "../../models/Post";
+import {Comment, Post} from "../../models/Post";
 import {User} from "../../models/User";
 import {AppComponent} from "../../app.component";
 import {SigninComponent} from "../signin/signin.component";
+import {WebcamImage} from "ngx-webcam";
 
 interface MenuButton{
   name : string,
@@ -25,6 +26,8 @@ export class MainComponent {
   newPost : Post
   searchingList : User[] = []
   questionLength : number = 0
+  webcamIsActive = false
+  webcamImage: WebcamImage | undefined
 
   constructor(public app : AppComponent, public changeDetectorRef : ChangeDetectorRef) {
     this.users = app.users
@@ -43,6 +46,16 @@ export class MainComponent {
         "./assets/anime-1.webp", ""),
       new Post("naruto", "The best animeeeeee", "./assets/anime-1.webp", "")
     ]
+
+    this.posts[0].comments.push(
+      new Comment("itashi", "Cool"),
+      new Comment("itashi", "Cool! Cool! Cool!"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool! Cool!"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool!"))
+
+    this.posts[1].comments.push(
+      new Comment("itashi", "Cool"),
+      new Comment("itashi", "Cool! Cool! Cool! Cool!"))
   }
 
   chooseMenu(event : any, index : number) {
@@ -76,40 +89,36 @@ export class MainComponent {
     this.menuButtons[0].isActive = true
   }
 
-  createNewPost(value : any){
+  createNewPost(value : any, event :any){
+    if(event.composedPath()[0].classList[0] == "create-post-modal") {
+      this.newPost.title = value.title
+      this.newPost.question = value.question
+      this.newPost.user = "itsanna"
+      //logic to add new post
+      this.posts.push(this.newPost)
 
-    this.newPost.title = value.title
-    this.newPost.question = value.question
-    this.newPost.user = "itsanna"
-    //logic to add new post
-    this.posts.push(this.newPost)
-
-    // @ts-ignore
-    document.getElementById("modal-background-create-post").classList.toggle("modal-active")
-    // @ts-ignore
-    document.getElementById("modal-background-create-post").children[0].classList.toggle("modal-active")
+      // @ts-ignore
+      document.getElementById("modal-background-create-post").classList.remove("modal-active")
+      // @ts-ignore
+      document.getElementById("modal-background-create-post").children[0].classList.remove("modal-active")
+    }
   }
 
   async onFileSelected(event: any) {
     const file = event.target.files[0];
     this.newPost.img = await this.uploadPhoto(file);
     this.changeDetectorRef.detectChanges();
-    console.log(this.newPost.img)
   }
 
   async uploadPhoto(file : File) : Promise<string>{
-
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         resolve(reader.result as string);
       };
-
       reader.onerror = (error) => {
         reject(error);
       };
-
       reader.readAsDataURL(file);
     });
   }
@@ -124,4 +133,25 @@ export class MainComponent {
     this.questionLength = value.question.length
   }
 
+  handleWebcam(){
+    this.webcamIsActive = !this.webcamIsActive
+  }
+
+  handleReplaceImage(){
+    this.newPost.img = ""
+  }
+
+  handleWebCamImage(image: WebcamImage){
+    this.webcamImage = image
+    const dataUrl = image.imageAsDataUrl;
+    const img = new Image();
+    img.onload = () => {
+      this.newPost.img = img.src;
+    };
+    img.src = dataUrl;
+    this.newPost.img = dataUrl
+    this.handleWebcam()
+    console.log(this.newPost.img)
+    console.log(dataUrl)
+  }
 }

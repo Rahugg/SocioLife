@@ -7,6 +7,8 @@ import {MainComponent} from "./components/main/main.component";
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {ForgotPasswordComponent} from "./components/forgot-password/forgot-password.component";
+import {PostDetailsComponent} from "./components/post-details/post-details.component";
+import {PostListComponent} from "./components/post-list/post-list.component";
 
 const routes: Routes = [
   {
@@ -14,7 +16,11 @@ const routes: Routes = [
     path: "main", component: MainComponent,
     children: [
       {path: "", redirectTo: "home", pathMatch: 'full'},
-      {path: "home", component: HomeComponent},
+      {path: "home", component: HomeComponent, children: [
+          {path: "", component: PostListComponent},
+          {path: ":id", component: PostDetailsComponent},
+          {path: "*", redirectTo: "", pathMatch: 'full'}
+        ] },
       {path: 'profile', component: ProfileComponent}
     ]
   },
@@ -23,7 +29,6 @@ const routes: Routes = [
   {path: "forgot-password", component: ForgotPasswordComponent},
   {path: 'signup', component: SignupComponent},
   {path: '*', component: NotFoundComponent},
-
 ];
 
 @NgModule({
