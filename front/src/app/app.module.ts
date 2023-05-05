@@ -4,9 +4,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
+import {WebcamModule} from 'ngx-webcam';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+
 
 import {ProfileComponent} from "./components/profile/profile.component"
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -17,10 +19,13 @@ import {SigninComponent} from "./components/signin/signin.component";
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { WebCameraComponent } from './components/webcamera/web-camera.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ProfileComponent, HomeComponent, SignupComponent, SigninComponent, MainComponent, NotFoundComponent, ForgotPasswordComponent
+    AppComponent, ProfileComponent, HomeComponent, SignupComponent, SigninComponent, MainComponent, NotFoundComponent, ForgotPasswordComponent, WebCameraComponent, PostDetailsComponent, PostListComponent
   ],
     imports: [
         BrowserModule,
@@ -31,6 +36,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
         MatSidenavModule,
         MatToolbarModule,
         FormsModule,
+      WebcamModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
