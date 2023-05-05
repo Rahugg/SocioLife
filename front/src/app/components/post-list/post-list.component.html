@@ -1,0 +1,33 @@
+<div class="post-list">
+
+  <div class="class-list-mode">
+    <p *ngFor="let category of postListCategories"
+       [ngClass]="category.isActive ? 'category-active' : ''"
+       (click)="switchCategory(category)"
+    >{{category.name}}</p>
+  </div>
+
+  <div (click)="showMore($event, post.id)" routerLink="{{post.id}}" class="post" *ngFor="let post of posts; let postIndex = index">
+    <div class="post-content">
+      <div class="post-content-left">
+        <img src="{{post.img}}" class="post-img"/>
+      </div>
+      <div class="post-details">
+        <div class="post-header">
+          <div class="post-user-img">
+            <img src="../../../assets/anime-1.webp"/>
+          </div>
+          <p>@{{post.user}}</p>
+        </div>
+
+        <div class="post-text">
+          <p>{{post.title.slice(0, 100)}}<span *ngIf="post.title.length > 100" class="more-button" (click)="showMoreText($event, post.id)" >...more</span></p>
+        </div>
+
+        <img src="../../../assets/icons/icon-like-inactive.png" class="post-icon" (click)="likeThisPost($event, post)"/>
+        <p class="post-likes"> 56 likes</p>
+      </div>
+    </div>
+  </div>
+
+</div>

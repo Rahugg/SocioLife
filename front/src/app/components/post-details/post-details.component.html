@@ -1,0 +1,45 @@
+ <div *ngIf="currentPost" class="post" id="post-details">
+    <div class="post-content">
+      <div class="post-content-left">
+        <img src="{{currentPost.img}}" class="post-img"/>
+      </div>
+      <div class="post-details">
+        <div class="post-header">
+          <div class="post-user-img">
+            <img src="../../../assets/anime-1.webp"/>
+          </div>
+          <p>@{{currentPost.user}}</p>
+        </div>
+
+        <div class="post-text">
+          <p>{{currentPost.title}}</p>
+        </div>
+
+        <img src="../../../assets/icons/icon-like-inactive.png" class="post-icon" (click)="likeThisPost($event, currentPost)"/>
+        <p class="post-likes"> 56 likes</p>
+
+        <div class="comment-list">
+          <div *ngFor="let comment of currentPost.comments" class="comment-background">
+            <div class="comment">
+              <div class="comment-account-image">
+                <img src="../../../assets/anime-2.jpg"/>
+              </div>
+              <div>
+                <p class="account-name">@{{comment.user}}</p>
+                <p>
+                  {{comment.title}}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-background">
+            <form class="comment new-comment" #comment="ngForm" (ngSubmit)="postComment(comment.value, currentPost.id)">
+              <input ngModel name="comment" placeholder="{{currentPost.question}} or add your comment"/>
+              <button type="submit"> > </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
