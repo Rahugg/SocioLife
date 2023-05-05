@@ -22,10 +22,11 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { WebCameraComponent } from './components/webcamera/web-camera.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import {NotificationsComponent} from "./components/notifications/notifications.component";
 
 @NgModule({
   declarations: [
-    AppComponent, ProfileComponent, HomeComponent, SignupComponent, SigninComponent, MainComponent, NotFoundComponent, ForgotPasswordComponent, WebCameraComponent, PostDetailsComponent, PostListComponent
+    AppComponent, ProfileComponent, HomeComponent, SignupComponent, SigninComponent, MainComponent, NotFoundComponent, ForgotPasswordComponent, WebCameraComponent, PostDetailsComponent, PostListComponent, NotificationsComponent
   ],
     imports: [
         BrowserModule,

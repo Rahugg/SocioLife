@@ -70,9 +70,14 @@ mat-sidenav-container {
   border-radius: 20px;
 }
 
-.menu-button-is-active{
+.menu-button-is-active, .menu-button-is-active-notification{
   color: #308CC0;
   font-weight: bold!important;
+}
+
+.menu-button-is-active-notification{
+  background: #071621;
+  border-radius: 10px 0 0 10px;
 }
 
 .menu-icon {
@@ -171,8 +176,32 @@ mat-divider {
   margin-left: 15%;
 }
 
+#notification-bar{
+  display: none;
+  position: fixed;
+  top: 210px;
+  left: 250px;
+  /*background: rgb(0, 0, 0);*/
+  z-index: 15;
+  margin-left: 15px;
+}
+
+#notification-bar .triangle{
+  position: relative;
+  left: 0;
+  top: 17vh;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-right: 20px solid #071621;
+}
+
 .modal-active{
-  display: flex;
+  display: flex!important;
 }
 
 .create-post-textarea textarea{

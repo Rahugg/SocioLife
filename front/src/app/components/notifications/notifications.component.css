@@ -1,0 +1,47 @@
+.notification-list{
+  background: #071621;
+  border-radius: 20px;
+  width: fit-content;
+  height: 40vh;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.notification-background {
+  display: flex;
+  width: 280px;
+  background: rgba(53, 102, 168, 0.16);
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.notification p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.account-name {
+  font-weight: 500;
+}
+
+.notification-account-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.notification-account-image img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  border-radius: 50%;
+}

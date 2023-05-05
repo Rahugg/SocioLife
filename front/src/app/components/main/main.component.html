@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav mode="side" opened id="sidenav">
     <div class="content-side">
       <p [routerLink]="['home']" id="Website-name">SocioLife</p>
       <div class="avatar-side-bar">
@@ -8,7 +8,7 @@
           @itsanna
         </p>
       </div>
-      <button *ngFor="let button of menuButtons, let index = index" [ngClass]=" button.isActive ? 'menu-button-is-active' : ''" class="menu-button" mat-button (click)="chooseMenu($event, index)" routerLink="home">
+      <button *ngFor="let button of menuButtons, let index = index" [ngClass]="button.isActive ? 'menu-button-is-active' : ''" class="menu-button" mat-button (click)="chooseMenu($event, index)" routerLink="home">
         <img *ngIf="button.isActive" class="menu-icon" src="{{button.activeIcon}}">
         <img *ngIf="!button.isActive" class="menu-icon" src="{{button.inactiveIcon}}">
         <span>{{button.name}}</span>
@@ -92,6 +92,11 @@
       </div>
 
     </div>
+  </div>
+
+  <div id="notification-bar">
+    <div class="triangle"></div>
+    <app-notifications></app-notifications>
   </div>
 
   <div class="main-content">

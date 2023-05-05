@@ -1,0 +1,13 @@
+
+<div class="notification-list">
+  <div class="notification-background" *ngFor="let notification of notificationList">
+    <div class="notification">
+      <div class="notification-account-image">
+        <img src="../../../assets/anime-2.jpg"/>
+      </div>
+      <p>
+        @{{notification.user}} {{notification.title}} <span *ngIf="notification.comment">"{{notification.comment}}</span>
+      </p>
+    </div>
+  </div>
+</div>

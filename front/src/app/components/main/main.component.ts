@@ -10,6 +10,7 @@ interface MenuButton{
   isActive : boolean,
   activeIcon :  string
   inactiveIcon : string
+  elementId : string
 }
 
 @Component({
@@ -23,6 +24,7 @@ export class MainComponent {
   users : User[] = []
   posts : Post[] = []
   menuButtons : MenuButton[] = []
+  currentMenuButtonName : string = "Home"
   newPost : Post
   searchingList : User[] = []
   questionLength : number = 0
@@ -34,9 +36,10 @@ export class MainComponent {
     this.newPost = {} as Post
 
     this.menuButtons = [
-      {name : "Home", isActive : true, activeIcon :  "./assets/icons/icon-home-active.png", inactiveIcon :  "./assets/icons/icon-home-inactive.png"},
-      {name : "Search", isActive : false, activeIcon :  "./assets/icons/icon-search-active.png", inactiveIcon :  "./assets/icons/icon-search-inactive.png"},
-      {name : "Create", isActive : false, activeIcon : "./assets/icons/icon-add-active.png", inactiveIcon :  "./assets/icons/icon-add-inactive.png"}
+      {name : "Home", isActive : true, activeIcon :  "./assets/icons/icon-home-active.png", inactiveIcon :  "./assets/icons/icon-home-inactive.png", elementId: ""},
+      {name : "Search", isActive : false, activeIcon :  "./assets/icons/icon-search-active.png", inactiveIcon :  "./assets/icons/icon-search-inactive.png", elementId: "modal-background-create-post"},
+      {name : "Create", isActive : false, activeIcon : "./assets/icons/icon-add-active.png", inactiveIcon :  "./assets/icons/icon-add-inactive.png", elementId: "modal-background-search"},
+      {name : "Notifications", isActive : false, activeIcon : "./assets/icons/icon-notifications.png", inactiveIcon :  "./assets/icons/icon-notifications-inactive.png", elementId: "notification-bar"}
     ]
 
     this.posts = [
@@ -58,29 +61,49 @@ export class MainComponent {
       new Comment("itashi", "Cool! Cool! Cool! Cool!"))
   }
 
+  isMenuButton(event : any) : boolean{
+    if(event.composedPath()[0].classList[0] == "modal-background"
+      || event.composedPath()[0].classList[0] == "menu-button"
+      || event.composedPath()[1].classList[0] == "menu-button"){
+      return true
+    }
+    return false
+  }
+
   chooseMenu(event : any, index : number) {
-    this.menuButtons.forEach(button => button.isActive = false)
-    var currentMenuButton = this.menuButtons[index]
+    const currentMenuButton = this.menuButtons[index];
+
+    if(this.currentMenuButtonName != currentMenuButton.name) {
+      this.menuButtons.forEach(button => {
+        button.isActive = false
+        if (button.elementId) {
+          const buttonElement = <HTMLElement>document.getElementById(button.elementId)
+          buttonElement.classList.remove("modal-active")
+        }
+      })
+    }
+
     currentMenuButton.isActive = true
+
     if (currentMenuButton.name == "Create") {
-      if (event.composedPath()[0].classList[0] == "modal-background"
-        || event.composedPath()[0].classList[0] == "menu-button"
-        || event.composedPath()[1].classList[0] == "menu-button") {
-        var createPostElement = document.getElementById("modal-background-create-post")
-        if (createPostElement)
-          createPostElement.classList.add("modal-active")
+      if (this.isMenuButton(event)) {
+        const createPostElement = <HTMLElement> document.getElementById(currentMenuButton.elementId);
+        createPostElement.classList.toggle("modal-active")
         this.newPost.title = ""
         this.newPost.img = ""
       }
     } else if (currentMenuButton.name == "Search") {
-      if (event.composedPath()[0].classList[0] == "modal-background"
-        || event.composedPath()[0].classList[0] == "menu-button"
-        || event.composedPath()[1].classList[0] == "menu-button") {
-        var searchElement = document.getElementById("modal-background-search")
-        if (searchElement)
-          searchElement.classList.add("modal-active")
+      if (this.isMenuButton(event)) {
+        const searchElement = <HTMLElement> document.getElementById(currentMenuButton.elementId);
+        searchElement.classList.toggle("modal-active")
       }
+    } else if(currentMenuButton.name == "Notifications"){
+      const notificationBar = <HTMLElement> document.getElementById(currentMenuButton.elementId);
+      notificationBar.classList.toggle("modal-active")
+      const menuBar = <HTMLElement> document.getElementById("sidenav")
+      console.log(menuBar)
     }
+    this.currentMenuButtonName = currentMenuButton.name
   }
 
   closeModel(event : any){
@@ -96,11 +119,9 @@ export class MainComponent {
       this.newPost.user = "itsanna"
       //logic to add new post
       this.posts.push(this.newPost)
-
-      // @ts-ignore
-      document.getElementById("modal-background-create-post").classList.remove("modal-active")
-      // @ts-ignore
-      document.getElementById("modal-background-create-post").children[0].classList.remove("modal-active")
+      const modalElement = <HTMLElement>document.getElementById("modal-background-create-post");
+      modalElement.classList.remove("modal-active")
+      modalElement.children[0].classList.remove("modal-active")
     }
   }
 
